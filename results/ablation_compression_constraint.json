@@ -1,0 +1,737 @@
+{
+  "description": "Ablation comparing OptimizedPipeline with compress_prompts=False, constrain_output=False (old behavior, pre-lever) vs compress_prompts=True, constrain_output=True (new default) against the same 35 queries in data/queries.json. Semantic cache was cleared before each run so cache hits from one run don't mask the other's token/cost numbers. Response text/per-record latency were not captured by this ad-hoc script (only route/model/token counts + aggregate summary), so those fields are omitted rather than fabricated -- run scripts/run_optimized.py directly for full per-record logs including response_preview and latency_ms.",
+  "old_no_compression_no_constraint": {
+    "summary": {
+      "num_queries": 35,
+      "total_input_tokens": 871,
+      "total_output_tokens": 11781,
+      "total_tokens": 12652,
+      "total_cost_usd": 0.257108,
+      "avg_latency_ms": 4899.3,
+      "cache_hits": 5,
+      "cache_hit_rate": 0.1429,
+      "compressed_calls": 0,
+      "output_constrained_calls": 0,
+      "total_chars_saved_by_compression": 0
+    },
+    "records": [
+      {
+        "query_id": 1,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 14,
+        "output_tokens": 10,
+        "cost_usd": 6.4e-05,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 2,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 14,
+        "output_tokens": 27,
+        "cost_usd": 0.000149,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 3,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 4,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 18,
+        "output_tokens": 85,
+        "cost_usd": 0.000443,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 5,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 16,
+        "output_tokens": 28,
+        "cost_usd": 0.000156,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 6,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 16,
+        "output_tokens": 36,
+        "cost_usd": 0.000196,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 7,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 15,
+        "output_tokens": 45,
+        "cost_usd": 0.00024,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 8,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 17,
+        "output_tokens": 15,
+        "cost_usd": 9.2e-05,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 9,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 22,
+        "output_tokens": 39,
+        "cost_usd": 0.000217,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 10,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 16,
+        "output_tokens": 41,
+        "cost_usd": 0.000221,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 11,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 22,
+        "output_tokens": 58,
+        "cost_usd": 0.000312,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 12,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 22,
+        "output_tokens": 155,
+        "cost_usd": 0.000797,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 13,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 18,
+        "output_tokens": 314,
+        "cost_usd": 0.001588,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 14,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 19,
+        "output_tokens": 278,
+        "cost_usd": 0.001409,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 15,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 15,
+        "output_tokens": 27,
+        "cost_usd": 0.00015,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 16,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 17,
+        "output_tokens": 113,
+        "cost_usd": 0.000582,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 17,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 18,
+        "output_tokens": 124,
+        "cost_usd": 0.000638,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 18,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 64,
+        "output_tokens": 1024,
+        "cost_usd": 0.02592,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 19,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 56,
+        "output_tokens": 1024,
+        "cost_usd": 0.02588,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 20,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 58,
+        "output_tokens": 1024,
+        "cost_usd": 0.02589,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 21,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 80,
+        "output_tokens": 486,
+        "cost_usd": 0.01255,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 22,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 51,
+        "output_tokens": 1024,
+        "cost_usd": 0.025855,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 23,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 34,
+        "output_tokens": 1024,
+        "cost_usd": 0.02577,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 24,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 35,
+        "output_tokens": 1024,
+        "cost_usd": 0.025775,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 25,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 45,
+        "output_tokens": 1024,
+        "cost_usd": 0.025825,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 26,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 27,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 28,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 23,
+        "output_tokens": 513,
+        "cost_usd": 0.002588,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 29,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 26,
+        "output_tokens": 57,
+        "cost_usd": 0.001555,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 30,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 16,
+        "output_tokens": 90,
+        "cost_usd": 0.000466,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 31,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 32,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 46,
+        "output_tokens": 1024,
+        "cost_usd": 0.02583,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 33,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 15,
+        "output_tokens": 24,
+        "cost_usd": 0.000135,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 34,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 35,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 43,
+        "output_tokens": 1024,
+        "cost_usd": 0.025815,
+        "compressed": false,
+        "output_constrained": false
+      }
+    ]
+  },
+  "new_compression_and_constraint": {
+    "summary": {
+      "num_queries": 35,
+      "total_input_tokens": 2177,
+      "total_output_tokens": 8407,
+      "total_tokens": 10584,
+      "total_cost_usd": 0.198204,
+      "avg_latency_ms": 3876.95,
+      "cache_hits": 5,
+      "cache_hit_rate": 0.1429,
+      "compressed_calls": 30,
+      "output_constrained_calls": 30,
+      "total_chars_saved_by_compression": 20
+    },
+    "records": [
+      {
+        "query_id": 1,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 53,
+        "output_tokens": 4,
+        "cost_usd": 7.3e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 2,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 53,
+        "output_tokens": 4,
+        "cost_usd": 7.3e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 3,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 4,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 57,
+        "output_tokens": 9,
+        "cost_usd": 0.000102,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 5,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 55,
+        "output_tokens": 5,
+        "cost_usd": 8e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 6,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 55,
+        "output_tokens": 5,
+        "cost_usd": 8e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 7,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 54,
+        "output_tokens": 6,
+        "cost_usd": 8.4e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 8,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 56,
+        "output_tokens": 6,
+        "cost_usd": 8.6e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 9,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 61,
+        "output_tokens": 7,
+        "cost_usd": 9.6e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 10,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 55,
+        "output_tokens": 12,
+        "cost_usd": 0.000115,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 11,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 61,
+        "output_tokens": 56,
+        "cost_usd": 0.000341,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 12,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 61,
+        "output_tokens": 142,
+        "cost_usd": 0.000771,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 13,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 57,
+        "output_tokens": 138,
+        "cost_usd": 0.000747,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 14,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 58,
+        "output_tokens": 67,
+        "cost_usd": 0.000393,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 15,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 54,
+        "output_tokens": 30,
+        "cost_usd": 0.000204,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 16,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 56,
+        "output_tokens": 57,
+        "cost_usd": 0.000341,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 17,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 57,
+        "output_tokens": 91,
+        "cost_usd": 0.000512,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 18,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 116,
+        "output_tokens": 1024,
+        "cost_usd": 0.02618,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 19,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 108,
+        "output_tokens": 648,
+        "cost_usd": 0.01674,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 20,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 110,
+        "output_tokens": 389,
+        "cost_usd": 0.010275,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 21,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 125,
+        "output_tokens": 126,
+        "cost_usd": 0.003775,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 22,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 103,
+        "output_tokens": 1024,
+        "cost_usd": 0.026115,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 23,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 86,
+        "output_tokens": 651,
+        "cost_usd": 0.016705,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 24,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 87,
+        "output_tokens": 1010,
+        "cost_usd": 0.025685,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 25,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 97,
+        "output_tokens": 494,
+        "cost_usd": 0.012835,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 26,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 27,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 28,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 62,
+        "output_tokens": 255,
+        "cost_usd": 0.001337,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 29,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 78,
+        "output_tokens": 67,
+        "cost_usd": 0.002065,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 30,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 55,
+        "output_tokens": 30,
+        "cost_usd": 0.000205,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 31,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 32,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 98,
+        "output_tokens": 1024,
+        "cost_usd": 0.02609,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 33,
+        "model": "claude-haiku-4-5",
+        "route": "cheap",
+        "input_tokens": 54,
+        "output_tokens": 4,
+        "cost_usd": 7.4e-05,
+        "compressed": true,
+        "output_constrained": true
+      },
+      {
+        "query_id": 34,
+        "model": null,
+        "route": "cache_hit",
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "compressed": false,
+        "output_constrained": false
+      },
+      {
+        "query_id": 35,
+        "model": "claude-opus-4-8",
+        "route": "expensive",
+        "input_tokens": 95,
+        "output_tokens": 1022,
+        "cost_usd": 0.026025,
+        "compressed": true,
+        "output_constrained": true
+      }
+    ]
+  }
+}

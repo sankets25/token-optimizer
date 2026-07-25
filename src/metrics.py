@@ -26,6 +26,9 @@ class CallRecord:
     latency_ms: float = 0.0
     cost_usd: float = 0.0
     response_preview: str = ""
+    compressed: bool = False
+    output_constrained: bool = False
+    chars_saved_by_compression: int = 0
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -71,6 +74,9 @@ class MetricsLog:
         total_latency = sum(r.latency_ms for r in self.records)
         n = len(self.records) or 1
         cache_hits = sum(1 for r in self.records if r.route == "cache_hit")
+        compressed_calls = sum(1 for r in self.records if r.compressed)
+        constrained_calls = sum(1 for r in self.records if r.output_constrained)
+        chars_saved = sum(r.chars_saved_by_compression for r in self.records)
         return {
             "num_queries": len(self.records),
             "total_input_tokens": total_input,
@@ -80,4 +86,7 @@ class MetricsLog:
             "avg_latency_ms": round(total_latency / n, 2),
             "cache_hits": cache_hits,
             "cache_hit_rate": round(cache_hits / n, 4),
+            "compressed_calls": compressed_calls,
+            "output_constrained_calls": constrained_calls,
+            "total_chars_saved_by_compression": chars_saved,
         }
