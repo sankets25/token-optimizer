@@ -24,6 +24,25 @@ expensive model) a query took, and `compressed` / `output_constrained` /
 `chars_saved_by_compression` on each record show which of the extra two
 levers applied to that call.
 
+## Results
+
+35-query sample run, `claude-opus-4-8` baseline vs. the full optimized pipeline (cache +
+routing + compression + output constraints):
+
+| Metric               | Baseline | Optimized | Change |
+|----------------------|---------:|----------:|-------:|
+| Total tokens          |   15,357 |    13,109 | **-14.6%** |
+| Total cost (USD)      |  $0.3630 |   $0.2605 | **-28.2%** |
+| Avg latency (ms)      |    6,188 |     4,937 | **-20.2%** |
+| Cache hit rate        |      n/a | 17.1% (6/35) | — |
+| Queries routed cheap  |      n/a | 17/35 (Haiku 4.5) | — |
+
+Full breakdown, including an ablation that isolates the compression/output-constraint
+levers from cache + routing, is in
+[`results/comparison_table.md`](results/comparison_table.md) — worth reading before
+citing these numbers, since on this small/terse sample set the output constraint accounts
+for nearly all of the win (see the note under Usage below).
+
 ## Architecture
 
 ```mermaid
